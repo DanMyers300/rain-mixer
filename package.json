@@ -1,0 +1,15 @@
+{
+  "name": "sound",
+  "module": "index.ts",
+  "type": "module",
+  "main": "build/index.js",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "electron": "^34.2.0"
+  }
+}
