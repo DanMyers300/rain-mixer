@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bun run build.ts
+electron ./dist/index.html

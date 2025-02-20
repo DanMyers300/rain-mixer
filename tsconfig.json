@@ -25,7 +25,7 @@
     "noPropertyAccessFromIndexSignature": false,
 
     // Output directory
-    "outDir": "./build", // Output files to ./build
+    "outDir": "./dist", // Output files to ./build
   },
   "include": ["src/**/*"]
 }
