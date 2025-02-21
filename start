@@ -1,4 +1,5 @@
 #!/bin/sh
 
+bun install
 bun run build.ts
 electron ./dist/index.html

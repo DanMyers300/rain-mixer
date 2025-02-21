@@ -1,0 +1,9 @@
+services:
+ rain-mixer:
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    network_mode: host
