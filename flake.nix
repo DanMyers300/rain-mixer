@@ -1,6 +1,6 @@
 {
   inputs={
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 
   outputs={
@@ -18,7 +18,9 @@
         bun
         typescript
         electron
+        mesa
       ];
+      LD_LIBRARY_PATH="/run/opengl-driver/lib:/run/opengl-driver-32/lib";
     };
   };
 }
