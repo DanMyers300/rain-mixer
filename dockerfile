@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     curl \
     unzip \
+    dbus-x11 \
     xauth
 
 # Install Bun
@@ -25,6 +26,9 @@ ENV PATH="/root/.bun/bin:${PATH}"
 # Install TypeScript
 RUN bun install -g typescript
 
+# Create non-root user
+RUN useradd -m appuser
+USER appuser
 WORKDIR /app
 
 # Install Electron dependencies (will be overridden by mounted volume)

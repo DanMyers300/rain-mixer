@@ -1,9 +1,11 @@
 services:
- rain-mixer:
+  rain-mixer:
     build: .
     environment:
       - DISPLAY=${DISPLAY}
+      - XAUTHORITY=/tmp/.Xauthority  # Add Xauth
     volumes:
       - .:/app
       - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/tmp/.Xauthority:ro  # Mount Xauth file
     network_mode: host
