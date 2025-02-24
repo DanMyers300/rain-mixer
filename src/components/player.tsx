@@ -9,7 +9,7 @@ const Player = () => {
   };
 
   return (
-    <div 
+    <div
       onClick={toggleSpin}
       className="
         m-3
@@ -24,7 +24,7 @@ const Player = () => {
         relative
       "
     >
-      <img 
+      <img
         src={record}
         alt="record"
         className={`
