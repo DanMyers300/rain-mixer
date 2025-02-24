@@ -2,9 +2,9 @@ import Player from './components/player.tsx';
 
 const App = () => {
   return (
-    <div>
+    <main className="flex items-center justify-center h-screen w-screen">
       <Player />
-    </div>
+    </main>
   );
 };
 
