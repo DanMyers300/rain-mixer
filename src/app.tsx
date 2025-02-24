@@ -1,7 +1,9 @@
+import Player from './components/player.tsx';
+
 const App = () => {
   return (
     <div>
-      <h1> Hello world! </h1>
+      <Player />
     </div>
   );
 };
