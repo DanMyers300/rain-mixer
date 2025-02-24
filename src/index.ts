@@ -7,8 +7,9 @@ const createWindow = () => {
   });
 
   Menu.setApplicationMenu(null);
+  win.webContents.openDevTools()
 
-  win.loadFile('./dist/index.html');
+  win.loadFile('./dist/index*.html');
 }
 
 app.whenReady().then(() => {

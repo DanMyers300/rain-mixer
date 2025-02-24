@@ -1,4 +1,5 @@
 #!/bin/sh
 
+rm -r dist/*
 bun run build.ts
-electron ./dist/index.html
+electron ./dist/index*.html
