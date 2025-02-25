@@ -39,6 +39,7 @@ jobs:
         run: bunx tailwindcss -i ./src/index.css -o ./src/output.css
 
       - name: Build App
+        needs: Build Tailwind
         run: bun run build
 
       - name: Setup Pages
