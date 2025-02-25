@@ -1,4 +1,4 @@
-import Record from './components/player.tsx';
+import Record from './components/Player.tsx';
 
 const App = () => {
   return (
