@@ -35,11 +35,15 @@ jobs:
       - name: Install Tailwind CSS
         run: bun add -d @tailwindcss/cli
 
+      - name: Reinstall dependencies after adding Tailwind
+        run: bun install
+
       - name: Build Tailwind
+        id: build-tailwind
         run: bunx tailwindcss -i ./src/index.css -o ./src/output.css
 
       - name: Build App
-        needs: Build Tailwind
+        dependsOn: build-tailwind
         run: bun run build
 
       - name: Setup Pages
