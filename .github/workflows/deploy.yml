@@ -33,7 +33,7 @@ jobs:
         run: bun install
 
       - name: Install Tailwind CSS
-        run: sudo apt install tailwindcss
+        run: bun add -d @tailwindcss/cli
 
       - name: Build
         run: bunx tailwindcss -i ./src/index.css -o ./src/output.css
