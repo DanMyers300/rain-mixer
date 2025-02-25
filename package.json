@@ -6,17 +6,14 @@
   "homepage": "https://danmyers300.github.io/rain-mixer",
   "scripts": {
     "dev": "vite",
-    "build": "tailwindcss -i ./src/index.css -o ./src/output.css && tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "bun run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.8",
     "@tailwindcss/vite": "^4.0.8",
     "autoprefixer": "^10.4.20",
-    "gh-pages": "^6.3.0",
     "install": "^0.13.0",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
