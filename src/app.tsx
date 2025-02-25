@@ -1,9 +1,9 @@
-import Player from './components/player.tsx';
+import Record from './components/player.tsx';
 
 const App = () => {
   return (
     <main className="flex items-center justify-center h-screen w-screen">
-      <Player />
+      <Record />
     </main>
   );
 };

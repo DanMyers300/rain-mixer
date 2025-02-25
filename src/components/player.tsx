@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import record from '../../assets/record.png';
+import Rain from './rain.tsx';
 
-const Player = () => {
+const Record = () => {
   const [spin, setSpin] = useState(false);
 
   const toggleSpin = () => {
@@ -36,8 +37,9 @@ const Player = () => {
           ${spin ? 'animate-[spin_10s_linear_infinite]' : ''}
         `}
       />
+      <Rain play={spin} />
     </div>
   );
 };
 
-export default Player;
+export default Record;
