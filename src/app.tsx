@@ -1,10 +1,14 @@
-import Record from './components/Player.tsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './home.tsx';
+
 
 const App = () => {
   return (
-    <main className="flex items-center justify-center h-screen w-screen">
-      <Record />
-    </main>
+     <BrowserRouter basename="/rain-mixer">
+       <Routes>
+         <Route path="/" element={<Home />} />
+       </Routes>
+     </BrowserRouter>
   );
 };
 
