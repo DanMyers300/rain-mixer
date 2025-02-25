@@ -1,6 +1,11 @@
 import { useState } from 'react';
+
+// Components
+import PlaybackHandler from './PlaybackHandler.tsx';
+
+//Assets
 import record from '../../assets/record.png';
-import Rain from './rain.tsx';
+import rain from '../../assets/rain.mp3'
 
 const Record = () => {
   const [spin, setSpin] = useState(false);
@@ -37,7 +42,7 @@ const Record = () => {
           ${spin ? 'animate-[spin_10s_linear_infinite]' : ''}
         `}
       />
-      <Rain play={spin} />
+      <PlaybackHandler playing={spin} track={rain}/>
     </div>
   );
 };
