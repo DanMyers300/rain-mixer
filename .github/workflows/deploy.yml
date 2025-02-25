@@ -35,9 +35,6 @@ jobs:
       - name: Install Tailwind CSS
         run: bun add -d @tailwindcss/cli
 
-      - name: Build Tailwind
-        run: bunx tailwindcss -i ./src/index.css -o ./src/output.css
-
       - name: Build App
         run: bun run build
 
