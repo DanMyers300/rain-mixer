@@ -75,4 +75,4 @@ Please change the parent <Route path="${Q}"> to <Route path="${Q==="/"?"*":`${Q}
           w-full
           object-cover
           ${f?"animate-[spin_10s_linear_infinite]":""}
-        `}),fe.jsx(kv,{playing:f,track:Fv})]})},Iv=()=>fe.jsx("main",{className:"flex items-center justify-center h-screen w-screen",children:fe.jsx(Pv,{})}),ty=()=>fe.jsx(Gv,{basename:"/rain-mixer",children:fe.jsx(vv,{children:fe.jsx(Xd,{path:"/",element:fe.jsx(Iv,{})})})});R0.createRoot(document.getElementById("root")).render(fe.jsx(_.StrictMode,{children:fe.jsx(ty,{})}));
+        `}),fe.jsx(kv,{playing:f,track:Fv})]})},Iv=()=>fe.jsx("main",{className:"flex items-center justify-center h-screen w-screen",children:fe.jsx(Pv,{})}),ty=()=>fe.jsx(Gv,{children:fe.jsx(vv,{children:fe.jsx(Xd,{path:"/",element:fe.jsx(Iv,{})})})});R0.createRoot(document.getElementById("root")).render(fe.jsx(_.StrictMode,{children:fe.jsx(ty,{})}));
