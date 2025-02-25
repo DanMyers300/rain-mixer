@@ -37,6 +37,7 @@ jobs:
 
       - name: Build
         run: bunx tailwindcss -i ./src/index.css -o ./src/output.css
+        run: bun run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
