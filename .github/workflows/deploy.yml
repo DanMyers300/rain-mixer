@@ -32,11 +32,9 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      # New step to install Tailwind CSS
       - name: Install Tailwind CSS
-        run: bun add -d tailwindcss
+        run: apt install tailwindcss
 
-      # Modified build step using bunx
       - name: Build
         run: bunx tailwindcss -i ./src/index.css -o ./src/output.css
 
