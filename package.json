@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "/dist",
+  "homepage": "https://danmyers300.github.io/rain-mixer",
   "scripts": {
     "dev": "vite",
     "build": "tailwindcss -i ./src/index.css -o ./src/output.css && tsc -b && vite build",
