@@ -8,6 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/DanMyers300/rain-mixer/',
+  base: './',
 })
 
