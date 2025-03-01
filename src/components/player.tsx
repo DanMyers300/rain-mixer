@@ -1,6 +1,6 @@
 import record from '../../assets/record.png';
 import rain from '../../assets/rain.mp3';
-import Audio from './playbackHandler.tsx';
+import Audio from './audio.tsx';
 
 interface RecordProps {
   volume: number;
