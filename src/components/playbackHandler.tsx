@@ -6,7 +6,7 @@ interface PlaybackHandlerProps {
   volume: number;
 }
 
-const PlaybackHandler = ({ playing, track, volume }: PlaybackHandlerProps) => {
+const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
   const audio = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -28,4 +28,4 @@ const PlaybackHandler = ({ playing, track, volume }: PlaybackHandlerProps) => {
   );
 };
 
-export default PlaybackHandler;
+export default Audio;
