@@ -29,11 +29,6 @@ const Record = ({ volume, playing, togglePlaying }: RecordProps) => {
         src={record}
         alt="record"
         className={`
-          absolute
-          inset-0
-          h-full
-          w-full
-          object-cover
           ${playing ? 'animate-[spin_10s_linear_infinite]' : ''}
         `}
       />
