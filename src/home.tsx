@@ -12,7 +12,7 @@ const Home = () => {
   };
 
   return (
-    <main className="flex items-center justify-center h-screen w-screen" >
+    <main className="flex-col h-screen" >
       <Record volume={volume} playing={playing} togglePlaying={togglePlaying} />
       <Volume volume={volume} setVolume={setVolume} />
     </main>
