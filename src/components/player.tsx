@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Components
-import PlaybackHandler from './PlaybackHandler.tsx';
+import PlaybackHandler from './playbackHandler.tsx';
 
 // Assets
 import record from '../../assets/record.png';
