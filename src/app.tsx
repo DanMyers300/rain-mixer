@@ -4,7 +4,7 @@ import Home from './home.tsx';
 
 const App = () => {
   return (
-     <BrowserRouter basename="/rain-mixer">
+     <BrowserRouter basename="/">
        <Routes>
          <Route path="/" element={<Home />} />
        </Routes>
