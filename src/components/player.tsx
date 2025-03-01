@@ -14,15 +14,7 @@ const Record = ({ volume, playing, togglePlaying }: RecordProps) => {
       onClick={togglePlaying}
       className="
         m-3
-        flex
-        h-80
         w-80
-        items-center
-        justify-center
-        rounded-full
-        cursor-pointer
-        overflow-hidden
-        relative
       "
     >
       <img

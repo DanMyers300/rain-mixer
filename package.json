@@ -6,10 +6,12 @@
   "homepage": "https://danmyers300.github.io/rain-mixer",
   "scripts": {
     "dev": "vite",
+    "css": "tailwindcss -i src/index.css -o src/output.css",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pages": "tailwindcss -i src/index.css -o src/output.css && bun run build && bun run gh-pages -d dist --cname rain.danmyers.net"
+    "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
+    "pushPages": "bun run css && bun run build && bun run pages"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.8",
