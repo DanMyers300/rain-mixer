@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pages": "tailwindcss src/index.css src/output.css && bun run build && bun run gh-pages -d dist --cname rain.danmyers.net"
+    "pages": "tailwindcss -i src/index.css -o src/output.css && bun run build && bun run gh-pages -d dist --cname rain.danmyers.net"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.8",
