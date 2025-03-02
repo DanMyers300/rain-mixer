@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "vite",
     "css": "tailwindcss -i src/index.css -o src/output.css",
-    "build": "tsc -b && vite build",
-    "electron:dev": "concurrently -k \"bun run dev\" \"tsc -p electron/tsconfig.json --watch\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron dist/electron/main.cjs\"",
+    "build": "bun run css && tsc -b && vite build",
+    "electron:dev": "sh ./electron/cjs.sh && concurrently -k \"bun run dev\" \"tsc -p electron/tsconfig.json --watch\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron dist/electron/main.cjs\"",
     "electron:build": "tsc -p electron/tsconfig.json && bun run css && bun run build && electron-builder",
     "lint": "eslint .",
     "preview": "vite preview",
