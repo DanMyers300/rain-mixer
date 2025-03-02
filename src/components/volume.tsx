@@ -13,6 +13,7 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
       value={volume}
       onChange={(e) => setVolume(parseFloat(e.target.value))}
       onClick={(e) => e.stopPropagation()}
+      className="mt-5 w-48"
     />
   );
 };
