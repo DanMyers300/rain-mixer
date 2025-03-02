@@ -1,5 +1,0 @@
-#!/bin/sh
-
-rm ./src/output.css
-tailwindcss -i ./src/index.css -o ./src/output.css
-bun run dev
