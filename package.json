@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
-    "pushPages": "bun run css && bun run build && bun run pages"
+    "deploy": "bun run css && bun run build && bun run pages"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.8",
