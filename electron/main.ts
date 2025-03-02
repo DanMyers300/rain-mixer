@@ -8,7 +8,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.cjs'),
       sandbox: true,
       contextIsolation: true
     }
@@ -18,7 +18,8 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:5173');
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+    const indexPath = path.join(__dirname, '../index.html');
+    mainWindow.loadFile(indexPath);
   }
 
   mainWindow.on('closed', () => {
@@ -29,7 +30,7 @@ function createWindow() {
 app.whenReady()
   .then(createWindow)
   .catch((err) =>
-    console.error('Failed to created window:\n',
+    console.error('Failed to create window:\n',
                   '---\n',
                   err )
   );
