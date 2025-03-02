@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Record from './components/player.tsx';
+import Record from './components/record.tsx';
 import Volume from './components/volume.tsx';
 
 const Home = () => {
@@ -12,9 +12,11 @@ const Home = () => {
   };
 
   return (
-    <main className="flex-col h-screen" >
-      <Record volume={volume} playing={playing} togglePlaying={togglePlaying} />
-      <Volume volume={volume} setVolume={setVolume} />
+    <main className="flex flex-col w-screen h-screen items-center justify-center" >
+      <div id="Player" className="flex flex-col w-64 items-center">
+        <Record volume={volume} playing={playing} togglePlaying={togglePlaying} />
+        <Volume volume={volume} setVolume={setVolume} />
+      </div>
     </main>
   );
 };
