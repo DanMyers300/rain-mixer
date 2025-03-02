@@ -4,7 +4,7 @@ import Record from './record.tsx';
 import Volume from './volume.tsx';
 
 const Player = () => {
-  const [volume, setVolume] = useState(0.05);
+  const [volume, setVolume] = useState(0.2);
   const [playing, setPlaying] = useState(false);
 
   const togglePlaying = () => {
