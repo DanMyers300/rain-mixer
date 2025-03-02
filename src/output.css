@@ -554,6 +554,10 @@ video {
   display: none;
 }
 
+.m-5 {
+  margin: 1.25rem;
+}
+
 .mb-5 {
   margin-bottom: 1.25rem;
 }
