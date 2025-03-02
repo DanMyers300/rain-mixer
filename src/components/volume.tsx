@@ -4,11 +4,9 @@ interface VolumeProps {
 }
 
 const Volume = ({ volume, setVolume }: VolumeProps) => {
-  const currentVolume = Math.sqrt(volume);
-  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    setVolume(value * value);
+    setVolume(value);
   };
 
   return (
@@ -17,8 +15,7 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
       min="0"
       max="1"
       step="0.01"
-      value={currentVolume}
-      onInput={handleChange}
+      value={volume}
       onChange={handleChange}
       onClick={(e) => e.stopPropagation()}
       className="mt-5 w-48 h-2 rounded-full
