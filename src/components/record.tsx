@@ -10,16 +10,12 @@ interface RecordProps {
 
 const Record = ({ volume, playing, togglePlaying }: RecordProps) => {
   return (
-    <div onClick={togglePlaying} >
+    <div onClick={togglePlaying} className="m-5 w-32 cursor-pointer">
       <img
         src={record}
         alt="record"
         className={`
           ${playing ? 'animate-[spin_10s_linear_infinite]' : ''}
-          cursor-pointer
-          mt-5
-          mb-5
-          w-32
         `}
       />
       <Audio playing={playing} track={rain} volume={volume} />
