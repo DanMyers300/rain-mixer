@@ -10,13 +10,7 @@ interface RecordProps {
 
 const Record = ({ volume, playing, togglePlaying }: RecordProps) => {
   return (
-    <div
-      onClick={togglePlaying}
-      className="
-        m-3
-        w-80
-      "
-    >
+    <div onClick={togglePlaying} >
       <img
         src={record}
         alt="record"

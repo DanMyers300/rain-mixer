@@ -554,16 +554,28 @@ video {
   display: none;
 }
 
-.m-3 {
-  margin: 0.75rem;
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.flex {
+  display: flex;
 }
 
 .h-screen {
   height: 100vh;
 }
 
-.w-80 {
-  width: 20rem;
+.w-48 {
+  width: 12rem;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 @keyframes spin {
@@ -578,6 +590,14 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 :root {
