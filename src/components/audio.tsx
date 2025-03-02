@@ -18,11 +18,12 @@ const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
   useEffect(() => {
     if (audio.current) {
       audio.current.volume = volume;
+      audio.current.muted = false;
     }
   }, [volume]);
 
   return (
-    <audio ref={audio} loop>
+    <audio ref={audio} controls={false} loop>
       <source src={track} type="audio/mpeg" />
     </audio>
   );
