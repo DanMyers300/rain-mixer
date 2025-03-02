@@ -9,5 +9,11 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: './',
+  build: {
+    outDir: 'dist',
+  },
+  server: {
+    port: 5173
+  }
 })
 

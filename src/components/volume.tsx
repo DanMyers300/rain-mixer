@@ -5,9 +5,8 @@ interface VolumeProps {
 
 const Volume = ({ volume, setVolume }: VolumeProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const linearValue = parseFloat(e.target.value);
-    const quadraticValue = linearValue * linearValue;
-    setVolume(quadraticValue);
+    const lv = parseFloat(e.target.value);
+    setVolume(lv * lv);
   };
 
   return (
