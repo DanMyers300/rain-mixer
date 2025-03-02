@@ -2,16 +2,25 @@
   "name": "rain-mixer",
   "private": true,
   "version": "0.0.0",
+  "main": "dist/electron/main.js",
   "type": "module",
   "homepage": "https://danmyers300.github.io/rain-mixer",
   "scripts": {
     "dev": "vite",
     "css": "tailwindcss -i src/index.css -o src/output.css",
     "build": "tsc -b && vite build",
+    "electron:dev": "concurrently -k \"bun run dev\" \"tsc -p electron/tsconfig.json --watch\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron dist/electron/main.cjs\"",
+    "electron:build": "tsc -p electron/tsconfig.json && bun run css && bun run build && electron-builder",
     "lint": "eslint .",
     "preview": "vite preview",
     "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
     "deploy": "bun run css && bun run build && bun run pages"
+  },
+  "build": {
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ]
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.8",
@@ -30,12 +39,16 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron-builder": "^25.1.8",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
-    "vite": "^6.1.0"
+    "vite": "^6.1.0",
+    "wait-on": "^8.0.2"
   }
 }
