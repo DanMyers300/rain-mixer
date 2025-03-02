@@ -42,6 +42,7 @@
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
     "electron-builder": "^25.1.8",
+    "electron": "^34.3.0",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
