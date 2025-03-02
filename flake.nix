@@ -16,6 +16,7 @@
     devShells.${system}.default = mkShell {
       buildInputs = with pkgs; [
         bun
+        nodejs_23
         typescript
         electron
         tailwindcss
