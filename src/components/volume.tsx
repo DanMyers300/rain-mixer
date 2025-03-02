@@ -19,6 +19,7 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
       step="0.01"
       value={currentVolume}
       onInput={handleChange}
+      onChange={handleChange}
       onClick={(e) => e.stopPropagation()}
       className="mt-5 w-48 h-2 rounded-full
         appearance-none bg-gradient-to-r from-transparent
