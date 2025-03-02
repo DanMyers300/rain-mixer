@@ -17,6 +17,7 @@ const Record = ({ volume, playing, togglePlaying }: RecordProps) => {
         className={`
           ${playing ? 'animate-[spin_10s_linear_infinite]' : ''}
           cursor-pointer
+          mt-5
           mb-5
           w-32
         `}

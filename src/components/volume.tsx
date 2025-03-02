@@ -19,7 +19,7 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
       value={Math.sqrt(volume)}
       onChange={handleChange}
       onClick={(e) => e.stopPropagation()}
-      className="volume-slider mt-5 w-48 h-4 rounded-full
+      className="volume-slider mt-5 mb-5 w-48 h-4 rounded-full
         appearance-none cursor-pointer
         [&::-webkit-slider-container]:bg-transparent
         [&::-webkit-slider-thumb]:appearance-none
