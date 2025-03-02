@@ -5,8 +5,9 @@ interface VolumeProps {
 
 const Volume = ({ volume, setVolume }: VolumeProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseFloat(e.target.value);
-    setVolume(value);
+    const linearValue = parseFloat(e.target.value);
+    const quadraticValue = linearValue * linearValue; // Square the linear input
+    setVolume(quadraticValue);
   };
 
   return (
@@ -15,10 +16,10 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
       min="0"
       max="1"
       step="0.01"
-      value={volume}
+      value={Math.sqrt(volume)} // Convert volume to linear slider position
       onChange={handleChange}
       onClick={(e) => e.stopPropagation()}
-      className="mt-5 w-48 h-4 rounded-full
+      className="volume-slider mt-5 w-48 h-4 rounded-full
         appearance-none cursor-pointer
         [&::-webkit-slider-container]:bg-transparent
         [&::-webkit-slider-thumb]:appearance-none
@@ -29,7 +30,7 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
         [&::-webkit-slider-thumb]:relative
         [&::-webkit-slider-thumb]:z-20"
       style={{
-        '--volume': `${volume * 100}%`,
+        '--volume': `${Math.sqrt(volume) * 100}%`, // Match slider's linear position
       } as React.CSSProperties}
     />
   );

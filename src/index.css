@@ -18,7 +18,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
+.volume-slider::-webkit-slider-runnable-track {
   background:
     linear-gradient(
       to right,
@@ -30,12 +30,12 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 9999px;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+.volume-slider::-webkit-slider-thumb {
   transform: translateY(calc(-50% + 2px));
   margin-left: -2px;
   transition: transform 0.1s ease;
 }
 
-input[type="range"]:active::-webkit-slider-thumb {
+.volume-slider:active::-webkit-slider-thumb {
   transform: translateY(calc(-50% + 2px)) scale(1.1);
 }
