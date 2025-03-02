@@ -651,6 +651,14 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.\[\&\:\:-webkit-slider-container\]\:bg-transparent::-webkit-slider-container {
+  background-color: transparent;
+}
+
+.\[\&\:\:-webkit-slider-runnable-track\]\:rounded-\[100px\/1px\]::-webkit-slider-runnable-track {
+  border-radius: 100px/1px;
+}
+
 .\[\&\:\:-webkit-slider-thumb\]\:h-4::-webkit-slider-thumb {
   height: 1rem;
 }
