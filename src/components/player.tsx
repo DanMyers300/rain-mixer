@@ -13,8 +13,15 @@ const Player = () => {
 
   return (
    <div id="Player" className="flex flex-col w-64 items-center">
-     <Record volume={volume} playing={playing} togglePlaying={togglePlaying} />
-     <Volume volume={volume} setVolume={setVolume} />
+     <Record
+       volume={volume}
+       playing={playing}
+       togglePlaying={togglePlaying}
+     />
+     <Volume
+       volume={volume}
+       setVolume={setVolume}
+     />
    </div>
   );
 };
