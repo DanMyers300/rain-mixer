@@ -17,34 +17,12 @@ const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
     *     - Volume changes update gain node
     *     - Play/pause toggles audio state
     *     - Track URL changes update <source> element
-    */
+   */
   const audio = useRef<HTMLAudioElement>(null);
   const audioContext = useRef<AudioContext | null>(null);
   const gainNode = useRef<GainNode | null>(null);
   const source = useRef<MediaElementAudioSourceNode | null>(null);
 
-  // Handle track changes
-  useEffect(() => {
-    const updateTrack = async () => {
-      if (!audio.current) return;
-      
-      const wasPlaying = playing;
-      audio.current.pause();
-      audio.current.load();
-      
-      if (wasPlaying) {
-        try {
-          await audio.current.play();
-        } catch (err) {
-          console.error('Error restarting audio:', err);
-        }
-      }
-    };
-
-    updateTrack();
-  }, [track]);
-
-  // Handle play/pause
   useEffect(() => {
     const initAudioContext = async () => {
       if (!audioContext.current && audio.current) {
@@ -61,8 +39,14 @@ const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
 
       if (playing) {
         try {
-          if (!audioContext.current) await initAudioContext();
-          if (audioContext.current?.state === 'suspended') await audioContext.current.resume();
+          if (!audioContext.current) {
+            await initAudioContext();
+          }
+          
+          if (audioContext.current?.state === 'suspended') {
+            await audioContext.current.resume();
+          }
+          
           await audio.current.play();
         } catch (err) {
           console.error('Error playing audio:', err);
@@ -75,24 +59,15 @@ const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
     handlePlay();
   }, [playing]);
 
-  // Handle volume changes
   useEffect(() => {
     if (gainNode.current) {
-      gainNode.current.gain.setValueAtTime(volume, audioContext.current?.currentTime || 0);
+      gainNode.current.gain.value = volume;
     }
   }, [volume]);
-
-  // Cleanup audio context
-  useEffect(() => {
-    return () => {
-      audioContext.current?.close();
-    };
-  }, []);
 
   return (
     <audio ref={audio} controls={false} loop>
       <source src={track} type="audio/mpeg" />
-      <source src={track} type="audio/ogg" />
     </audio>
   );
 };
