@@ -1,16 +1,13 @@
 interface VolumeProps {
   volume: number;
   setVolume: (value: number) => void;
-};
+}
 
 const Volume = ({ volume, setVolume }: VolumeProps) => {
-
-  // Give the volume slider a more natural feel
-  // by applying a quadratic curve
   const currentVolume = Math.sqrt(volume);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const _ = parseFloat(e.target.value);
-    setVolume(_ * _);
+    const value = parseFloat(e.target.value);
+    setVolume(value * value);
   };
 
   return (
@@ -22,7 +19,14 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
       value={currentVolume}
       onChange={handleChange}
       onClick={(e) => e.stopPropagation()}
-      className="mt-5 w-48"
+      className="mt-5 w-48 h-2 rounded-full
+        appearance-none bg-gradient-to-r from-transparent
+        via-current to-transparent cursor-pointer
+        [&::-webkit-slider-thumb]:appearance-none
+        [&::-webkit-slider-thumb]:h-4
+        [&::-webkit-slider-thumb]:w-4
+        [&::-webkit-slider-thumb]:rounded-full
+        [&::-webkit-slider-thumb]:bg-white"
     />
   );
 };
