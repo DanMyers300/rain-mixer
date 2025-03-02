@@ -562,8 +562,8 @@ video {
   display: flex;
 }
 
-.h-2 {
-  height: 0.5rem;
+.h-4 {
+  height: 1rem;
 }
 
 .h-screen {
@@ -618,25 +618,6 @@ video {
   border-radius: 9999px;
 }
 
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-
-.from-transparent {
-  --tw-gradient-from: transparent var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-current {
-  --tw-gradient-to: rgb(255 255 255 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), currentColor var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.to-transparent {
-  --tw-gradient-to: transparent var(--tw-gradient-to-position);
-}
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -651,12 +632,39 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input[type="range"]::-webkit-slider-runnable-track {
+  background:
+    linear-gradient(
+      to right,
+      currentColor var(--volume, 20%),
+      transparent var(--volume, 20%)
+    ),
+    rgba(255, 255, 255, 0.1);
+  height: 4px;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  transform: translateY(calc(-50% + 2px));
+  margin-left: -2px;
+  -webkit-transition: transform 0.1s ease;
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  transform: translateY(calc(-50% + 2px)) scale(1.1);
+}
+
 .\[\&\:\:-webkit-slider-container\]\:bg-transparent::-webkit-slider-container {
   background-color: transparent;
 }
 
-.\[\&\:\:-webkit-slider-runnable-track\]\:rounded-\[100px\/1px\]::-webkit-slider-runnable-track {
-  border-radius: 100px/1px;
+.\[\&\:\:-webkit-slider-thumb\]\:relative::-webkit-slider-thumb {
+  position: relative;
+}
+
+.\[\&\:\:-webkit-slider-thumb\]\:z-20::-webkit-slider-thumb {
+  z-index: 20;
 }
 
 .\[\&\:\:-webkit-slider-thumb\]\:h-4::-webkit-slider-thumb {
