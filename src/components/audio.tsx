@@ -6,18 +6,10 @@ interface PlaybackHandlerProps {
   volume: number;
 }
 
+// TO DO:
+// - Normalize volume
+
 const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
-  /** Flow:
-    *   1) First Play:
-    *     - User interaction triggers playing: true
-    *     - Audio context created
-    *     - Audio nodes connected: MediaElement → Gain → Destination
-    *     - Audio playback starts
-    *   2) Subsequent Updates:
-    *     - Volume changes update gain node
-    *     - Play/pause toggles audio state
-    *     - Track URL changes update <source> element
-    */
   const audio = useRef<HTMLAudioElement>(null);
   const audioContext = useRef<AudioContext | null>(null);
   const gainNode = useRef<GainNode | null>(null);
