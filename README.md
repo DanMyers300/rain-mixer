@@ -13,5 +13,5 @@
 
 * Website: Danmyers.net
 * Github: [@danmyers300](https://github.com/danmyers300)
-* LinkedIn: [@https:\/\/www.linkedin.com\/in\/danpmyers\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/danpmyers\/)
+* LinkedIn: [@danpmyers](https://linkedin.com/in/danpmyers\/)
 
