@@ -13,11 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+
       - name: Configure Git
         run: |
           git config --global user.email "contact@danmyers.net"
           git config --global user.name "DanMyers300"
+          # Add the GitHub token to authenticate the push
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Run Deployment
-        run: bun run pages
+        run: bun run deploy
