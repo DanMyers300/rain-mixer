@@ -42,13 +42,15 @@ const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
     };
 
     updateTrack();
-  }, [track]);
+  }, [track, playing]);
 
   // Handle play/pause
   useEffect(() => {
     const initAudioContext = async () => {
       if (!audioContext.current && audio.current) {
-        audioContext.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const Context = window.AudioContext ||
+          (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        audioContext.current = new Context();
         gainNode.current = audioContext.current.createGain();
         source.current = audioContext.current.createMediaElementSource(audio.current);
         source.current.connect(gainNode.current);
@@ -74,7 +76,7 @@ const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
     };
 
     handlePlay();
-  }, [playing]);
+  }, [playing, volume]);
 
   // Handle volume changes
   useEffect(() => {
