@@ -16,7 +16,7 @@
     "preview": "vite preview",
     "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
     "deploy": "bun run css && bun run build && bun run pages",
-    "ghdeploy": "bun run bun:css && bun run build && bun run pages"
+    "gh:deploy": "bun run bun:css && bun run build && bun run pages"
   },
   "build": {
     "files": [
