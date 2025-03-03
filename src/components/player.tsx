@@ -15,6 +15,9 @@ export const trackDisplay = (t: string): string => {
   // Remove /assets/ and file extension
   t = t.split('/').pop()!.split('.')[0];
 
+  // Remove the vite build section
+  t = t.split('-') ? t.split('-')[0] : t;
+
   // Capitalize the first letter
   let tArr = t.split("");
   tArr[0] = tArr[0]?.toUpperCase();
