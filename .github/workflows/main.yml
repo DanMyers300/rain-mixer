@@ -16,6 +16,9 @@ jobs:
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
 
+      - name: Install Deps
+        run: bun install
+
       - name: Configure Git
         run: |
           git config --global user.email "contact@danmyers.net"
