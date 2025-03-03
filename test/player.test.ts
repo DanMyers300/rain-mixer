@@ -13,6 +13,12 @@ describe('Brown Noise', () => {
   });
 });
 
+describe('Vite Build names', () => {
+  it('Should remove vite build names', () => {
+    expect(trackDisplay('/assets/brown Noise-234k1a.mp3')).toBe('Brown Noise');
+  });
+});
+
 describe('Sad ', () => {
   it('Empty string', () => {
     expect(trackDisplay("")).toBe('');
