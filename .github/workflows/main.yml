@@ -20,7 +20,7 @@ jobs:
         run: bun install
 
       - name: Install Tailwind
-        run: bun install tailwindcss
+        run: bun install @tailwindcss/cli
 
       - name: Run Deployment
         run: bun run gh:deploy
