@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
-    "deploy": "bun run build && bun run css && bun run pages"
+    "deploy": "bun run css && bun run build && bun run pages"
   },
   "build": {
     "files": [
