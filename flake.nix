@@ -50,6 +50,7 @@
   in {
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
+        git-lfs
         bun
         nodejs_23
         typescript
