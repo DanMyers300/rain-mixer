@@ -1,7 +1,7 @@
 {
   "name": "rain-mixer",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/electron/main.cjs",
   "type": "module",
   "homepage": "https://danmyers300.github.io/rain-mixer",
