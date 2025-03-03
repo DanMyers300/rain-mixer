@@ -23,4 +23,4 @@ jobs:
         run: bun install tailwindcss
 
       - name: Run Deployment
-        run: bun run deploy
+        run: bun run gh:deploy
