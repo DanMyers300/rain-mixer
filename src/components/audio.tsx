@@ -53,6 +53,7 @@ const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
         source.current = audioContext.current.createMediaElementSource(audio.current);
         source.current.connect(gainNode.current);
         gainNode.current.connect(audioContext.current.destination);
+        gainNode.current.gain.setValueAtTime(volume, audioContext.current?.currentTime || 0);
       }
     };
 
