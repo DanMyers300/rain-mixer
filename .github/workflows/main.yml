@@ -22,8 +22,11 @@ jobs:
       - name: Install Tailwind
         run: bun install @tailwindcss/cli
 
-      - name: Init user
-        run: git config --global user.email "contact@danmyers.net" && git config --global user.name "DanMyers300"
+      - name: Configure Git
+        run: |
+          git config --global user.email "contact@danmyers.net"
+          git config --global user.name "DanMyers300"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Run Deployment
         run: bun run deploy
