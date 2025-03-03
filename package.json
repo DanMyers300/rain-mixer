@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
-    "deploy": "bun run css && bun run build && bun run pages",
+    "deploy": "bun run css && bun run build && bun run pages"
   },
   "build": {
     "files": [
@@ -27,6 +27,7 @@
     "npmRebuild": false
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.0.9",
     "@tailwindcss/postcss": "^4.0.8",
     "@tailwindcss/vite": "^4.0.8",
     "autoprefixer": "^10.4.20",
