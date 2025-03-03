@@ -7,8 +7,7 @@
   "homepage": "https://danmyers300.github.io/rain-mixer",
   "scripts": {
     "dev": "vite",
-    "css": "tailwindcss -i src/index.css -o src/output.css",
-    "bun:css": "bun run tailwindcss -i src/index.css -o src/output.css",
+    "css": "bun run tailwindcss -i src/index.css -o src/output.css",
     "build": "bun run css && tsc -b && vite build",
     "electron:dev": "sh ./electron/cjs.sh && concurrently -k \"bun run dev\" \"tsc -p electron/tsconfig.json --watch\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron dist/electron/main.cjs\"",
     "electron:build": "bun run css && bun run build && tsc -p electron/tsconfig.json && sh ./electron/cjs.sh && electron-builder",
@@ -16,7 +15,6 @@
     "preview": "vite preview",
     "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
     "deploy": "bun run css && bun run build && bun run pages",
-    "gh:deploy": "bun run bun:css && bun run build && bun run pages"
   },
   "build": {
     "files": [
