@@ -22,5 +22,8 @@ jobs:
       - name: Install Tailwind
         run: bun install @tailwindcss/cli
 
+      - name: Init user
+        run: git config --global user.email "contact@danmyers.net" && git config --global user.name "Dan Myers"
+
       - name: Run Deployment
         run: bun run deploy
