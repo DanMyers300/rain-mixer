@@ -51,10 +51,6 @@
       nativeBuildInputs = [ pkgs.autoPatchelfHook ];
       buildInputs = buildLibraries pkgs;
 
-      preFixup = ''
-        addAutoPatchelfSearchPath ${pkgs.electron}/lib/electron
-      '';
-
       dontUnpack = true;
 
       installPhase = ''
