@@ -7,9 +7,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
-    # Common libraries function parameterized by pkgs
     commonLibraries = pkgs: with pkgs; [
-      # Libraries from the original buildInputs
       libxkbcommon
       cups
       xorg.libXtst
@@ -37,8 +35,6 @@
       nss
       nspr
       mesa
-
-      # Additional libraries from the nix-ld example
       stdenv.cc.cc
       zlib
       fuse3
@@ -48,6 +44,7 @@
     ];
 
   in {
+
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
         git-lfs
@@ -58,7 +55,6 @@
         p7zip
         appimage-run
         autoPatchelfHook
-        
         python3
         gcc
         gnumake
@@ -72,7 +68,6 @@
         export npm_config_build_from_source=true
         export npm_config_ignore_scripts=true
         
-        # Patch node_modules after installation
         autoPatchelf ./node_modules/7zip-bin/linux/x64/
         autoPatchelf ./node_modules/app-builder-bin/linux/x64/
       '';
@@ -80,12 +75,24 @@
       ELECTRON_OVERRIDE_DIST_PATH = "${pkgs.electron}/bin";
     };
 
-    # NixOS module configuring nix-ld with the same libraries
-    nixosModules.default = { config, pkgs, ... }: {
+    nixosModules.default = { config, pkgs, ... }:{
       programs.nix-ld = {
         enable = true;
         libraries = commonLibraries pkgs;
       };
+    };
+    
+    packages.${system}.rain-mixer = pkgs.stdenv.mkDerivation {
+      name = "rain-mixer";
+      src = dist/rain-mixer;
+      buildCommand = "#!/bin/sh\nexit 0"; # No-op since it's a binary
+      outputs = [ "out" ];
+      doCheck = false;
+      doInstall = true;
+      installPhase = ''
+        mkdir -p $out/bin
+        cp dist/linux-unpacked/rain-mixer $out/bin
+      '';
     };
   };
 }
