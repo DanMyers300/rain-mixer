@@ -30,8 +30,8 @@ const Player = () => {
   return (
    <div id="Player" className="relative flex flex-col w-64 items-center">
      <h1> {Rename(track)} </h1>
-     <h1 onClick={changeTrack} className="absolute right-0 top-50 cursor-pointer"> {"->"} </h1>
-     <h1 onClick={changeTrack} className="absolute left-0 top-50 cursor-pointer"> {"<-"} </h1>
+     <h1 onClick={changeTrack} className="absolute ml-50 cursor-pointer"> {">"} </h1>
+     <h1 onClick={changeTrack} className="absolute mr-50 cursor-pointer"> {"<"} </h1>
      <Record
        playing={playing}
        togglePlaying={togglePlaying}
