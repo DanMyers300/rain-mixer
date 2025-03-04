@@ -37,7 +37,6 @@ A clean web and desktop application for ambient sounds. Perfect for focus, relax
 
 ### Prerequisites
 - Bun 1.1+
-- Tailwindcss/cli
 - Node.js 20+ (For electron only)
 
 ### Quick Start (Web Version)
