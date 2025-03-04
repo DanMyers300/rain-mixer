@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 import path from 'path';
 
 let mainWindow: BrowserWindow | null = null;
@@ -11,6 +11,17 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.cjs'),
       sandbox: true,
       contextIsolation: true
+    },
+    autoHideMenuBar: true,
+    frame: false,
+    titleBarStyle: 'hiddenInset'
+  });
+
+  Menu.setApplicationMenu(null);
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.alt) {
+      event.preventDefault();
     }
   });
 
@@ -30,9 +41,11 @@ function createWindow() {
 app.whenReady()
   .then(createWindow)
   .catch((err) =>
-    console.error('Failed to create window:\n',
-                  '---\n',
-                  err )
+    console.error(
+      'Failed to create window:\n',
+      '---\n',
+      err
+    )
   );
 
 app.on('window-all-closed', () => {
