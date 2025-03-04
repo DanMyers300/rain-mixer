@@ -8,7 +8,7 @@ import Rename from '../util/rename.ts';
 // Tracks
 import rain from '../../assets/rain.mp3';
 import bn from '../../assets/brown Noise.mp3'
-import waterfall from '../../assets/waterfall + Birds.mp3';
+import waterfall from '../../assets/waterfall and Birds.mp3';
 import birds from '../../assets/birds.mp3';
 const tracks = [ rain, bn, waterfall, birds ];
 
