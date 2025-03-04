@@ -7,8 +7,7 @@
   "homepage": "https://danmyers300.github.io/rain-mixer",
   "scripts": {
     "dev": "vite",
-    "css": "tailwindcss -i src/index.css -o src/output.css",
-    "build": "bun run css && tsc -b && bun run vite build",
+    "build": "tsc -b && bun run vite build",
     "electron:dev": "sh ./electron/cjs.sh && concurrently -k \"bun run dev\" \"tsc -p electron/tsconfig.json --watch\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron dist/electron/main.cjs\"",
     "electron:build": "bun run build && tsc -p electron/tsconfig.json && sh ./electron/cjs.sh && electron-builder",
     "lint": "eslint .",
@@ -22,13 +21,16 @@
       "electron/**/*"
     ],
     "linux": {
-      "target": ["dir"]
+      "target": [
+        "dir"
+      ]
     },
     "npmRebuild": false
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.0.9",
     "@tailwindcss/postcss": "^4.0.8",
-    "@tailwindcss/vite": "^4.0.8",
+    "@tailwindcss/vite": "^4.0.9",
     "@types/bun": "^1.2.4",
     "autoprefixer": "^10.4.20",
     "gh-pages": "^6.3.0",
@@ -37,7 +39,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
-    "tailwindcss": "^4.0.8"
+    "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -46,8 +48,8 @@
     "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
-    "electron-builder": "^25.1.8",
     "electron": "^34.3.0",
+    "electron-builder": "^25.1.8",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",

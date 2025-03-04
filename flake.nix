@@ -55,7 +55,6 @@
         nodejs_23
         typescript
         electron
-        tailwindcss
         p7zip
         appimage-run
         autoPatchelfHook
