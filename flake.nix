@@ -43,23 +43,25 @@
       curl
     ];
 
+    buildLibraries = pkgs: with pkgs; [
+      git-lfs
+      bun
+      nodejs_23
+      typescript
+      electron
+      p7zip
+      appimage-run
+      autoPatchelfHook
+      python3
+      gcc
+      gnumake
+      pkg-config
+    ];
+
   in {
 
     devShells.${system}.default = pkgs.mkShell {
-      buildInputs = with pkgs; [
-        git-lfs
-        bun
-        nodejs_23
-        typescript
-        electron
-        p7zip
-        appimage-run
-        autoPatchelfHook
-        python3
-        gcc
-        gnumake
-        pkg-config
-      ] ++ (commonLibraries pkgs);
+      buildInputs = buildLibraries pkgs ++ (commonLibraries pkgs);
 
       LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath (commonLibraries pkgs)}:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 
@@ -78,30 +80,16 @@
     nixosModules.default = { config, pkgs, ... }:{
       programs.nix-ld = {
         enable = true;
-        libraries = commonLibraries pkgs;
+        libraries = buildLibraries pkgs ++ commonLibraries pkgs;
       };
     };
     
     packages.${system}.default = pkgs.stdenv.mkDerivation {
       name = "rain-mixer";
-      src = self;  # Use the entire project directory as the source
+      src = self;
     
-      buildInputs = with pkgs; [
-        git-lfs
-        bun
-        nodejs_23
-        typescript
-        electron
-        p7zip
-        appimage-run
-        autoPatchelfHook
-        python3
-        gcc
-        gnumake
-        pkg-config
-      ];
-    
-      # Build the project first
+      buildInputs = buildLibraries pkgs ++ commonLibraries pkgs;
+
       buildPhase = ''
         bun install
         bun run electron:build
