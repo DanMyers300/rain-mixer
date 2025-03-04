@@ -82,16 +82,34 @@
       };
     };
     
-    packages.${system}.rain-mixer = pkgs.stdenv.mkDerivation {
+    packages.${system}.default = pkgs.stdenv.mkDerivation {
       name = "rain-mixer";
-      src = dist/rain-mixer;
-      buildCommand = "#!/bin/sh\nexit 0"; # No-op since it's a binary
-      outputs = [ "out" ];
-      doCheck = false;
-      doInstall = true;
+      src = self;  # Use the entire project directory as the source
+    
+      buildInputs = with pkgs; [
+        git-lfs
+        bun
+        nodejs_23
+        typescript
+        electron
+        p7zip
+        appimage-run
+        autoPatchelfHook
+        python3
+        gcc
+        gnumake
+        pkg-config
+      ];
+    
+      # Build the project first
+      buildPhase = ''
+        bun install
+        bun run electron:build
+      '';
+    
       installPhase = ''
         mkdir -p $out/bin
-        cp dist/linux-unpacked/rain-mixer $out/bin
+        cp dist/linux-unpacked/rain-mixer $out/bin/
       '';
     };
   };

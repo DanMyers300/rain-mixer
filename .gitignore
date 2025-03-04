@@ -12,7 +12,6 @@ dist-ssr
 *.local
 
 package-lock.json
-bun.lockb
 .vite/
 
 src/output.css
