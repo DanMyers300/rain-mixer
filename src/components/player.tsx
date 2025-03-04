@@ -8,7 +8,9 @@ import Rename from '../util/rename.ts';
 // Tracks
 import rain from '../../assets/rain.mp3';
 import bn from '../../assets/brown Noise.mp3'
-const tracks = [ rain, bn ];
+import waterfall from '../../assets/waterfall + Birds.mp3';
+import birds from '../../assets/birds.mp3';
+const tracks = [ rain, bn, waterfall, birds ];
 
 
 const Player = () => {
@@ -21,27 +23,55 @@ const Player = () => {
     setPlaying(!playing);
   };
 
-  const changeTrack = () => {
+  const nextTrack = () => {
     const nextTrackIndex = (currentTrackIndex + 1) % tracks.length;
     setCurrentTrackIndex(nextTrackIndex);
     setTrack(tracks[nextTrackIndex]);
   };
 
+  const prevTrack = () => {
+    const nextTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+    setCurrentTrackIndex(nextTrackIndex);
+    setTrack(tracks[nextTrackIndex]);
+  };
+
   return (
-   <div id="Player" className="relative flex flex-col w-64 items-center">
-     <h1> {Rename(track)} </h1>
-     <h1 onClick={changeTrack} className="absolute ml-50 cursor-pointer"> {">"} </h1>
-     <h1 onClick={changeTrack} className="absolute mr-50 cursor-pointer"> {"<"} </h1>
-     <Record
-       playing={playing}
-       togglePlaying={togglePlaying}
-     />
-     <Volume
-       volume={volume}
-       setVolume={setVolume}
-     />
+    <div id="Player" className="flex flex-col items-center justify-center min-h-screen w-full p-4">
+
+      <h1>
+        {Rename(track)}
+      </h1>
+
+      <div className="flex items-center justify-center w-full max-w-4xl">
+        <button
+          onClick={prevTrack}
+        >
+          {"<"}
+        </button>
+
+        <div>
+          <Record
+            playing={playing}
+            togglePlaying={togglePlaying}
+          />
+        </div>
+
+        <button
+          onClick={nextTrack}
+        >
+          {">"}
+        </button>
+      </div>
+
+      <div>
+        <Volume
+          volume={volume}
+          setVolume={setVolume}
+        />
+      </div>
+
       <Audio playing={playing} track={track} volume={volume} />
-   </div>
+    </div>
   );
 };
 
