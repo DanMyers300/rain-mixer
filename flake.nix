@@ -8,11 +8,30 @@
     pkgs = nixpkgs.legacyPackages.${system};
 
     buildLibraries = pkgs: with pkgs; [
+      nspr
+      nss
+      dbus
+      atk
+      at-spi2-atk
+      cups
+      gtk3
+      pango
+      cairo
+      libxkbcommon
+      libdrm
+      expat
+      udev
+      alsa-lib
+      libgcc
+      mesa
       electron
-      nodejs_23 # Required because electron
-      bun
     ];
 
+    devLibraries = pkgs: with pkgs; [
+      electron
+      nodejs_23
+      bun
+    ];
 
   in {
 
@@ -28,6 +47,13 @@
         url = "https://github.com/DanMyers300/rain-mixer/releases/download/latest/rain-mixer-x64";
         sha256 = "74d6b92e9cba88ec106ce9550b8b1ae662a38ec20fcc6749835a6c0675df069f";
       };
+
+      nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+      buildInputs = buildLibraries pkgs;
+
+      preFixup = ''
+        addAutoPatchelfSearchPath ${pkgs.electron}/lib/electron
+      '';
 
       dontUnpack = true;
 
