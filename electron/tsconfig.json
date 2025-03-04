@@ -3,6 +3,7 @@
     "target": "es2020",
     "module": "Commonjs",
     "outDir": "../dist/electron",
+    "sourceMap": true,
     "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,

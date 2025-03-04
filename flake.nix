@@ -9,28 +9,32 @@
 
     buildLibraries = pkgs: with pkgs; [
       electron
+      nodejs_23 # Required because electron
       bun
     ];
 
-    devShells.${system}.default = pkgs.mkShell {
-      buildInputs = buildLibraries pkgs;
-    };
 
   in {
 
+    devShells.${system}.default = pkgs.mkShell {
+      name = "dev";
+      buildInputs = buildLibraries pkgs;
+    };
+
     packages.${system}.default = pkgs.stdenv.mkDerivation {
       name = "rain-mixer";
-      src = builtins.path { path = ./.; name = "rain-mixer"; };
 
-      nativeBuildInputs = buildLibraries pkgs;
-      buildInputs = buildLibraries pkgs;
+      binarySrc = pkgs.fetchurl {
+        url = "https://github.com/DanMyers300/rain-mixer/releases/download/latest/rain-mixer-x64";
+        sha256 = "74d6b92e9cba88ec106ce9550b8b1ae662a38ec20fcc6749835a6c0675df069f";
+      };
 
-      npmDepsHash = "./bun.lockb";
-      dontNpmBuild = true;
+      dontUnpack = true;
 
       installPhase = ''
         mkdir -p $out/bin
-        cp -r $src/dist/linux-unpacked/rain-mixer $out/bin/
+        cp $binarySrc $out/bin/rain-mixer
+        chmod +x $out/bin/rain-mixer
       '';
     };
   };
