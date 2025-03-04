@@ -1,12 +1,10 @@
 # 🌧️ Rain Mixer 🌧️
 
-![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000)
 
 A clean web and desktop application for ambient sounds. Perfect for focus, relaxation, or sleep. Features rain and brown noise tracks with vintage vinyl record aesthetics.
 
 **Live Demo**: [rain.danmyers.net](https://rain.danmyers.net)
-
-![Screenshot Preview](https://via.placeholder.com/800x500.png?text=Screenshot+Coming+Soon)
 
 ## Features
 
@@ -38,9 +36,9 @@ A clean web and desktop application for ambient sounds. Perfect for focus, relax
 ## Installation
 
 ### Prerequisites
-- Node.js 20+
-- Bun 1.0+
-- Nix (optional for development environments)
+- Bun 1.1+
+- Tailwindcss/cli
+- Node.js 20+ (For electron only)
 
 ### Quick Start (Web Version)
 ```bash
