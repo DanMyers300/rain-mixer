@@ -8,7 +8,7 @@ A clean web and desktop application for ambient sounds. Perfect for focus, relax
 
 ## Features
 
-- 🎵 Dual-track audio playback (rain & brown noise)
+- 🎵Multiple relaxing audio tracks
 - ▶️ Interactive vinyl record UI with play/pause animation
 - 🔊 Logarithmic volume control for smooth adjustment
 - 🔁 Automatic track looping
