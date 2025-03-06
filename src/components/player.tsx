@@ -41,7 +41,7 @@ const Player = () => {
       <div className="flex flex-row">
         <button
           onClick={prevTrack}
-          className="mr-15"
+          className="mr-15 cursor-pointer"
         >
           {"<"}
         </button>
@@ -50,14 +50,24 @@ const Player = () => {
         </h1>
         <button
           onClick={nextTrack}
-          className="ml-15"
+          className="ml-15 cursor-pointer"
         >
           {">"}
         </button>
       </div>
 
       <div className="flex items-center justify-center w-full max-w-4xl">
-        <div>
+        <div
+          tabIndex={0}
+          role="button"
+          onClick={togglePlaying}
+          onKeyDown={(_) => {
+            if (_.key === "Enter" || _.key === " ") {
+              togglePlaying();
+            }
+          }}
+          className="cursor-pointer"
+        >
           <Record
             playing={playing}
             togglePlaying={togglePlaying}
