@@ -24,7 +24,7 @@
       alsa-lib
       libgcc
       mesa
-      electron
+      ffmpeg
     ];
 
     devLibraries = pkgs: with pkgs; [
@@ -40,23 +40,37 @@
       buildInputs = devLibraries pkgs;
     };
 
-    packages.${system}.default = pkgs.stdenv.mkDerivation {
+    packages.${system}.default = pkgs.buildNpmPackage rec {
       name = "rain-mixer";
 
-      binarySrc = pkgs.fetchurl {
-        url = "https://github.com/DanMyers300/rain-mixer/releases/download/latest/rain-mixer-x64";
-        sha256 = "74d6b92e9cba88ec106ce9550b8b1ae662a38ec20fcc6749835a6c0675df069f";
+      src = pkgs.fetchFromGitHub {
+        owner = "DanMyers300";
+        repo = "rain-mixer";
+        rev = "latest";
+        hash = "sha256-ySUFZpagi/vC4TV3gqhj82RrQ37ZHA8VolmrjzdfOck=";
       };
 
-      nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+      npmDepsHash = "sha256-0000000000000000000000000000000000000000000=";
+
+      nativeBuildInputs = with pkgs; [
+        autoPatchelfHook
+        electron
+      ] ++ buildLibraries pkgs;
+
       buildInputs = buildLibraries pkgs;
 
-      dontUnpack = true;
+      ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
+
+      npmBuildScript = "build";
 
       installPhase = ''
+        mkdir -p $out/share/${name}
+        cp -r dist/* $out/share/${name}
+
         mkdir -p $out/bin
-        cp $binarySrc $out/bin/rain-mixer
-        chmod +x $out/bin/rain-mixer
+        makeWrapper ${pkgs.electron}/bin/electron $out/bin/${name} \
+          --add-flags $out/share/${name}/main.js \
+          --prefix LD_LIBRARY_PATH : "${pkgs.lib.makeLibraryPath (buildLibraries pkgs)}"
       '';
     };
   };

@@ -38,23 +38,24 @@ const Player = () => {
   return (
     <div id="Player" className="flex flex-col items-center justify-center min-h-screen w-full p-4">
 
-      <div className="relative w-full flex justify-center">
+      <div className="flex flex-row">
         <button
           onClick={prevTrack}
-          className="absolute left-1/3 cursor-pointer"
+          className="absolute left-15 cursor-pointer"
         >
           {"<"}
         </button>
-        <h1 className="text-center px-8">
+        <h1 className="max-w-sm">
           {Rename(track)}
         </h1>
         <button
           onClick={nextTrack}
-          className="absolute right-1/3 cursor-pointer"
+          className="absolute right-15 cursor-pointer"
         >
           {">"}
         </button>
       </div>
+
 
       <div className="flex items-center justify-center w-full max-w-4xl">
         <div
