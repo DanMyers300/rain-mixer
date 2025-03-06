@@ -47,10 +47,10 @@
         owner = "DanMyers300";
         repo = "rain-mixer";
         rev = "00f03e8";
-        hash = "sha256-KcgUZpms11QWV3kbQMqNIr738nuIIqYaRUeK5zo9g0c=";
+        hash = "";
       };
 
-      npmDepsHash = "sha256-ZRKTHxEY2xaEmMj20cf2O5kpamFmqnHxiCcXjMLS/tQ=";
+      npmDepsHash = "sha256-OHr6lcKFCvrtlRl7al6Sz7jmAXdjd1RT2/cGxHJjeqA=";
 
       nativeBuildInputs = with pkgs; [
         autoPatchelfHook
