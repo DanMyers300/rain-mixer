@@ -46,8 +46,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "DanMyers300";
         repo = "rain-mixer";
-        rev = "00f03e8";
-        hash = "";
+        rev = "latest";
+        hash = "sha256-KcgUZpms11QWV3kbQMqNIr738nuIIqYaRUeK5zo9g0c=";
       };
 
       npmDepsHash = "sha256-OHr6lcKFCvrtlRl7al6Sz7jmAXdjd1RT2/cGxHJjeqA=";
