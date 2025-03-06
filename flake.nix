@@ -37,7 +37,7 @@
 
     devShells.${system}.default = pkgs.mkShell {
       name = "dev";
-      buildInputs = buildLibraries pkgs;
+      buildInputs = devLibraries pkgs;
     };
 
     packages.${system}.default = pkgs.stdenv.mkDerivation {

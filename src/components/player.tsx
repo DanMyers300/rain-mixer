@@ -38,29 +38,31 @@ const Player = () => {
   return (
     <div id="Player" className="flex flex-col items-center justify-center min-h-screen w-full p-4">
 
-      <h1>
-        {Rename(track)}
-      </h1>
-
-      <div className="flex items-center justify-center w-full max-w-4xl">
+      <div className="flex flex-row">
         <button
           onClick={prevTrack}
+          className="mr-15"
         >
           {"<"}
         </button>
+        <h1>
+          {Rename(track)}
+        </h1>
+        <button
+          onClick={nextTrack}
+          className="ml-15"
+        >
+          {">"}
+        </button>
+      </div>
 
+      <div className="flex items-center justify-center w-full max-w-4xl">
         <div>
           <Record
             playing={playing}
             togglePlaying={togglePlaying}
           />
         </div>
-
-        <button
-          onClick={nextTrack}
-        >
-          {">"}
-        </button>
       </div>
 
       <div>
