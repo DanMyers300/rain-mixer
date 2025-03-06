@@ -10,6 +10,7 @@
     "build": "tsc -b && bun run vite build",
     "electron:dev": "sh ./electron/cjs.sh && concurrently -k \"bun run dev\" \"tsc -p electron/tsconfig.json --watch\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron dist/electron/main.cjs\"",
     "electron:build": "bun run build && tsc -p electron/tsconfig.json && sh ./electron/cjs.sh && electron-builder",
+    "npm:electron:build": "npm run build && tsc -p electron/tsconfig.json && sh ./electron/cjs.sh && electron-builder",
     "lint": "eslint .",
     "preview": "vite preview",
     "pages": "bun run gh-pages -d dist --cname rain.danmyers.net",
@@ -55,6 +56,7 @@
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
     "typescript": "^5.8.2",
+    "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0",
     "wait-on": "^8.0.2"
   }

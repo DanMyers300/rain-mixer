@@ -33,9 +33,6 @@
       bun
     ];
 
-    packageLock = ./package-lock.json;
-    node_modules= ./node_modules;
-
   in {
 
     devShells.${system}.default = pkgs.mkShell {
@@ -49,8 +46,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "DanMyers300";
         repo = "rain-mixer";
-        rev = "6a31cff";
-        hash = "sha256-ySUFZpagi/vC4TV3gqhj82RrQ37ZHA8VolmrjzdfOck=";
+        rev = "00f03e8";
+        hash = "sha256-KcgUZpms11QWV3kbQMqNIr738nuIIqYaRUeK5zo9g0c=";
       };
 
       npmDepsHash = "sha256-ZRKTHxEY2xaEmMj20cf2O5kpamFmqnHxiCcXjMLS/tQ=";
@@ -64,23 +61,9 @@
 
       ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
 
-      npmPackFlags = [ "--ignore-scripts" ];
-      npmFlags = [ "--offline" "--no-audit" "--no-fund" ];
-      makeCacheWritable = true;
-
-      postPatch = ''
-        cp ${packageLock} ./package-lock.json
-        cp ${node_modules} ./node_modules
-      '';
-
-      installPhase = ''
-        mkdir -p $out/share/${name}
-        cp -r dist/* $out/share/${name}
-
-        mkdir -p $out/bin
-        makeWrapper ${pkgs.electron}/bin/electron $out/bin/${name} \
-          --add-flags $out/share/${name}/main.js \
-          --prefix LD_LIBRARY_PATH : "${pkgs.lib.makeLibraryPath (buildLibraries pkgs)}"
+      buildPhase = ''
+        npm install
+        npm run npm:electron:build
       '';
     };
   };
