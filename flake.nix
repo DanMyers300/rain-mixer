@@ -33,6 +33,8 @@
       bun
     ];
 
+    packageLock = ./package-lock.json;
+
   in {
 
     devShells.${system}.default = pkgs.mkShell {
@@ -62,6 +64,10 @@
       ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
 
       npmPackFlags = [ "--ignore-scripts" ];
+
+      postPatch = ''
+        cp ${packageLock} ./package-lock.json
+      '';
 
       installPhase = ''
         mkdir -p $out/share/${name}
