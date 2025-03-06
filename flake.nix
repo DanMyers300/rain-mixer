@@ -52,7 +52,7 @@
         hash = "sha256-ySUFZpagi/vC4TV3gqhj82RrQ37ZHA8VolmrjzdfOck=";
       };
 
-      npmDepsHash = "sha256-M5d7qfnmm8kWmv3iADeJ6NxHUhxHUgtyZnCjyGm7IdU=";
+      npmDepsHash = "sha256-ZRKTHxEY2xaEmMj20cf2O5kpamFmqnHxiCcXjMLS/tQ=";
 
       nativeBuildInputs = with pkgs; [
         autoPatchelfHook
