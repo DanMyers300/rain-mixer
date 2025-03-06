@@ -61,7 +61,7 @@
 
       ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
 
-      npmBuildScript = "electron:build";
+      npmPackFlags = [ "--ignore-scripts" ];
 
       installPhase = ''
         mkdir -p $out/share/${name}
