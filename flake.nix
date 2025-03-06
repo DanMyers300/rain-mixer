@@ -34,6 +34,7 @@
     ];
 
     packageLock = ./package-lock.json;
+    node_modules= ./node_modules;
 
   in {
 
@@ -69,6 +70,7 @@
 
       postPatch = ''
         cp ${packageLock} ./package-lock.json
+        cp ${node_modules} ./node_modules
       '';
 
       installPhase = ''
