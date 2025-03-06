@@ -46,8 +46,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "DanMyers300";
         repo = "rain-mixer";
-        rev = "latest";
-        hash = "sha256-KcgUZpms11QWV3kbQMqNIr738nuIIqYaRUeK5zo9g0c=";
+        rev = "1d3e35c";
+        hash = "sha256-eb8VT1NnuRhNCxMygQsG41nhwo58enA9TobKNoJe2vA=";
       };
 
       npmDepsHash = "sha256-OHr6lcKFCvrtlRl7al6Sz7jmAXdjd1RT2/cGxHJjeqA=";
@@ -58,6 +58,7 @@
       ] ++ buildLibraries pkgs;
 
       buildInputs = buildLibraries pkgs;
+      npmPackFlags = [ "--ignore-scripts" ];
 
       ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
 
