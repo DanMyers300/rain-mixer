@@ -46,7 +46,7 @@
       src = pkgs.fetchFromGitHub {
         owner = "DanMyers300";
         repo = "rain-mixer";
-        rev = "a1c1b6d";
+        rev = "11c75db";
         hash = "sha256-GxDlAo9EZg80RKVNPzaL4CXi5TIKzbfydExdd3gK4Bw=";
       };
 
@@ -62,10 +62,6 @@
 
       ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
 
-      buildPhase = ''
-        npm install
-        npm run npm:electron:build
-      '';
       installPhase = ''
         npm install
         npm run npm:electron:build

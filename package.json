@@ -7,7 +7,7 @@
   "homepage": "https://danmyers300.github.io/rain-mixer",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && bun run vite build",
+    "build": "tsc -b && npm run vite build",
     "electron:dev": "sh ./electron/cjs.sh && concurrently -k \"bun run dev\" \"tsc -p electron/tsconfig.json --watch\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron dist/electron/main.cjs\"",
     "electron:build": "bun run build && tsc -p electron/tsconfig.json && sh ./electron/cjs.sh && electron-builder",
     "npm:electron:build": "npm run build && tsc -p electron/tsconfig.json && sh ./electron/cjs.sh && electron-builder",
