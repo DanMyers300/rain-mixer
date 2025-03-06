@@ -7,12 +7,13 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
-    buildLibraries = pkgs: with pkgs; [
+    buildLibraries = with pkgs; [
       nspr
       nss
       dbus
       atk
       at-spi2-atk
+      at-spi2-core
       cups
       gtk3
       pango
@@ -25,43 +26,68 @@
       libgcc
       mesa
       ffmpeg
+      xorg.libX11
+      xorg.libXcomposite
+      xorg.libXdamage
+      xorg.libXext
+      xorg.libXfixes
+      xorg.libXrandr
+      xorg.libxcb
+      libappindicator-gtk3
+      libuuid
     ];
 
-    devLibraries = pkgs: with pkgs; [
+    devLibraries = with pkgs; [
       electron
       nodejs_23
       bun
     ];
 
   in {
-
     devShells.${system}.default = pkgs.mkShell {
       name = "dev";
-      buildInputs = devLibraries pkgs;
+      buildInputs = devLibraries;
     };
 
     packages.${system}.default = pkgs.buildNpmPackage rec {
       name = "rain-mixer";
-
-      src = pkgs.fetchFromGitHub {
-        owner = "DanMyers300";
-        repo = "rain-mixer";
-        rev = "54ce696";
-        hash = "sha256-LdKmO4hTTlHbzEljfZ4tsaN3vCr0bOXCPG9g2qKAUuE=";
-      };
+      src = ./.;
 
       npmDepsHash = "sha256-OHr6lcKFCvrtlRl7al6Sz7jmAXdjd1RT2/cGxHJjeqA=";
 
-      nativeBuildInputs = with pkgs; [
-        autoPatchelfHook
-        electron
-      ] ++ buildLibraries pkgs;
+      buildInputs = buildLibraries;
+      nativeBuildInputs = [ 
+        pkgs.autoPatchelfHook 
+        pkgs.patchelf 
+      ] ++ devLibraries;
 
-      buildInputs = buildLibraries pkgs;
+      ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
+
       npmPackFlags = [ "--ignore-scripts" ];
-      npmBuildScript = [ "nix:build" ];
+      dontNpmBuild = true;
+      dontNpmInstall = true;
 
-      ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
+      installPhase = ''
+        mkdir -p $out/bin $out/lib
+        cp -r $src/dist/linux-unpacked/* $out/bin/
+        chmod +x $out/bin/rain-mixer
+      '';
+
+      preFixup = ''
+        wrapProgram $out/bin/rain-mixer \
+          --set NODE_ICU_DATA "${pkgs.icu}/share/icu/${pkgs.icu.version}" \
+          --set ICU_DATA "$out/bin/icudtl.dat"
+      '';
+
+      postFixup = ''
+        find $out -type f -executable -print0 | xargs -0 -I file sh -c '
+          if file -b "file" | grep -q "ELF"; then
+            patchelf --set-interpreter "${pkgs.stdenv.cc.bintools.dynamicLinker}" \
+                     --set-rpath "${pkgs.lib.makeLibraryPath buildLibraries}:$out/lib" \
+                     "file"
+          fi
+        '
+      '';
     };
   };
 }

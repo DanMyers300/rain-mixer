@@ -8,7 +8,6 @@ lerna-debug.log*
 
 node_modules
 dist-ssr
-dist
 *.local
 
 .vite/
