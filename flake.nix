@@ -50,7 +50,7 @@
         hash = "sha256-ySUFZpagi/vC4TV3gqhj82RrQ37ZHA8VolmrjzdfOck=";
       };
 
-      npmDepsHash = "sha256-0000000000000000000000000000000000000000000=";
+      npmDepsHash = "sha256-ThuJCab/DC2GqTWXM7d8gkxCEZYtfJPtDPw/j4TLCwA=";
 
       nativeBuildInputs = with pkgs; [
         autoPatchelfHook
@@ -61,7 +61,7 @@
 
       ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
 
-      npmBuildScript = "build";
+      npmBuildScript = "electron:build";
 
       installPhase = ''
         mkdir -p $out/share/${name}
