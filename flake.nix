@@ -48,11 +48,11 @@
       src = pkgs.fetchFromGitHub {
         owner = "DanMyers300";
         repo = "rain-mixer";
-        rev = "latest";
+        rev = "6a31cff";
         hash = "sha256-ySUFZpagi/vC4TV3gqhj82RrQ37ZHA8VolmrjzdfOck=";
       };
 
-      npmDepsHash = "sha256-ThuJCab/DC2GqTWXM7d8gkxCEZYtfJPtDPw/j4TLCwA=";
+      npmDepsHash = "sha256-Y7YxX0G3ys5r9kli/nO9qY2jq+JO+/tCNKH3zP2+lMM=";
 
       nativeBuildInputs = with pkgs; [
         autoPatchelfHook
@@ -64,6 +64,8 @@
       ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
 
       npmPackFlags = [ "--ignore-scripts" ];
+      npmFlags = [ "--offline" "--no-audit" "--no-fund" ];
+      makeCacheWritable = true;
 
       postPatch = ''
         cp ${packageLock} ./package-lock.json
