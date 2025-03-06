@@ -8,33 +8,17 @@
     pkgs = nixpkgs.legacyPackages.${system};
 
     buildLibraries = with pkgs; [
-      nspr
-      nss
-      dbus
-      atk
-      at-spi2-atk
-      at-spi2-core
-      cups
-      gtk3
-      pango
-      cairo
-      libxkbcommon
-      libdrm
-      expat
-      udev
-      alsa-lib
-      libgcc
-      mesa
-      ffmpeg
-      xorg.libX11
-      xorg.libXcomposite
-      xorg.libXdamage
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXrandr
-      xorg.libxcb
+      nspr nss dbus atk at-spi2-atk
+      at-spi2-core cups gtk3 pango
+      cairo libxkbcommon libdrm
+      expat udev alsa-lib libgcc
+      mesa ffmpeg xorg.libX11
+      xorg.libXcomposite xorg.libXdamage
+      xorg.libXext xorg.libXfixes
+      xorg.libXrandr xorg.libxcb
       libappindicator-gtk3
       libuuid
+      musl
     ];
 
     devLibraries = with pkgs; [
@@ -43,50 +27,29 @@
       bun
     ];
 
-  in {
-    devShells.${system}.default = pkgs.mkShell {
+  in with pkgs; {
+    devShells.${system}.default = mkShell {
       name = "dev";
       buildInputs = devLibraries;
     };
 
-    packages.${system}.default = pkgs.buildNpmPackage rec {
+    packages.${system}.default = stdenv.mkDerivation rec {
       name = "rain-mixer";
-      src = ./.;
-
-      npmDepsHash = "sha256-OHr6lcKFCvrtlRl7al6Sz7jmAXdjd1RT2/cGxHJjeqA=";
+      src = fetchzip {
+        url = "https://github.com/DanMyers300/rain-mixer/releases/download/latest/rain-mixer.tar.gz";
+        hash = "sha256-azzuFBmsfrQsRhinBsQrkf+IC0/dh+eYzAVDTo7rb18=";
+      };
 
       buildInputs = buildLibraries;
-      nativeBuildInputs = [ 
-        pkgs.autoPatchelfHook 
-        pkgs.patchelf 
-      ] ++ devLibraries;
-
-      ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
-
-      npmPackFlags = [ "--ignore-scripts" ];
-      dontNpmBuild = true;
-      dontNpmInstall = true;
+      nativeBuildInputs = [
+        pkgs.autoPatchelfHook
+        pkgs.patchelf
+      ] ++ buildLibraries;
 
       installPhase = ''
-        mkdir -p $out/bin $out/lib
-        cp -r $src/dist/linux-unpacked/* $out/bin/
+        mkdir -p $out/bin
+        cp -r linux-unpacked/* $out/bin/
         chmod +x $out/bin/rain-mixer
-      '';
-
-      preFixup = ''
-        wrapProgram $out/bin/rain-mixer \
-          --set NODE_ICU_DATA "${pkgs.icu}/share/icu/${pkgs.icu.version}" \
-          --set ICU_DATA "$out/bin/icudtl.dat"
-      '';
-
-      postFixup = ''
-        find $out -type f -executable -print0 | xargs -0 -I file sh -c '
-          if file -b "file" | grep -q "ELF"; then
-            patchelf --set-interpreter "${pkgs.stdenv.cc.bintools.dynamicLinker}" \
-                     --set-rpath "${pkgs.lib.makeLibraryPath buildLibraries}:$out/lib" \
-                     "file"
-          fi
-        '
       '';
     };
   };
