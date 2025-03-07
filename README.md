@@ -12,9 +12,8 @@ A clean web and desktop application for ambient sounds. Perfect for focus, relax
 - ▶️ Interactive vinyl record UI with play/pause animation
 - 🔊 Logarithmic volume control for smooth adjustment
 - 🔁 Automatic track looping
-- ↔️ One-click track switching
+- ❄️ Nix flake
 - 🖥️ Cross-platform support (Web + Electron desktop app)
-- 🎚️ Web Audio API integration for professional sound handling
 
 ## Tech Stack
 
