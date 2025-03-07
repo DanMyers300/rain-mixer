@@ -30,7 +30,7 @@
         name = "rain-mixer";
         src = pkgs.fetchzip {
           url = "https://github.com/DanMyers300/rain-mixer/releases/download/latest/rain-mixer.tar.gz";
-          hash = "sha256-azzuFBmsfrQsRhinBsQrkf+IC0/dh+eYzAVDTo7rb18=";
+          hash = "sha256-pzx2bZL/KK4W0v1iOB2l3kHHD7kZbA7WZZKZodFOf4Y=";
         };
 
         buildInputs = buildLibraries;
