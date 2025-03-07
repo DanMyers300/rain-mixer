@@ -1,6 +1,6 @@
 # 🌧️ Rain Mixer 🌧️
 
-![Version](https://img.shields.io/badge/version-v0.0.4-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-v0.0.5-blue.svg?cacheSeconds=2592000)
 
 A clean web and desktop application for ambient sounds. Perfect for focus, relaxation, or sleep. Features rain and brown noise tracks with vintage vinyl record aesthetics.
 
