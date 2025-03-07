@@ -13,7 +13,7 @@
 
   in {
     packages = forEachSystem ({ pkgs, system }: let
-      buildLibraries = with pkgs; [
+        buildLibraries = with pkgs; [
         nspr nss dbus atk at-spi2-atk
         at-spi2-core cups gtk3 pango
         cairo libxkbcommon libdrm

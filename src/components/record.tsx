@@ -19,13 +19,13 @@ const Record = ({ playing, togglePlaying }: RecordProps) => {
       <div
         className="absolute right-full top-1/2 -translate-y-1/2 mr-5
                    opacity-0 group-hover:opacity-100 transition-all
-                   duration-300 h-25 w-5 bg-gray-400 rounded-full
+                   duration-300 h-25 w-10 bg-gray-400 rounded-full
                    transform group-hover:scale-110"
       />
       <div
         className="absolute left-full top-1/2 -translate-y-1/2 ml-5
                    opacity-0 group-hover:opacity-100 transition-all
-                   duration-300 h-25 w-5 bg-gray-400 rounded-full
+                   duration-300 h-25 w-10 bg-gray-400 rounded-full
                    transform group-hover:scale-110"
       />
     </div>

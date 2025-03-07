@@ -10,8 +10,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: rgb(33,35,87);
-  background: linear-gradient(180deg, rgba(33,35,87,1) 0%, rgba(0,0,0,1) 100%);
+  background: rgb(149,145,145);
+  background: linear-gradient(180deg, rgba(149,145,145,1) 0%, rgba(77,75,101,1) 18%, rgba(44,36,113,1) 62%, rgba(40,34,102,1) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
