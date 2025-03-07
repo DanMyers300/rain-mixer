@@ -47,4 +47,4 @@ bun run dev
 ### Quick Start (Electron Version)
 ```bash
 bun install
-bun run dev
+bun run electron:build
