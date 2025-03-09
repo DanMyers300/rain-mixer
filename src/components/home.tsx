@@ -1,4 +1,4 @@
-import Player from './components/player.tsx';
+import Player from './player.tsx';
 
 const Home = () => {
   return (

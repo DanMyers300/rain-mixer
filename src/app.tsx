@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Home from './home.tsx';
+import Home from './components/home.tsx';
 
 
 const App = () => {
