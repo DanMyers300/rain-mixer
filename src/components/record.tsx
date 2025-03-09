@@ -20,14 +20,20 @@ const Record = ({ playing, togglePlaying }: RecordProps) => {
         className="absolute right-full top-1/2 -translate-y-1/2 mr-5
                    opacity-0 group-hover:opacity-100 transition-all
                    duration-300 h-25 w-10 bg-gray-400 rounded-full
-                   transform group-hover:scale-110"
-      />
+                   transform group-hover:scale-110 flex flex-col"
+      >
+        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+      </div>
       <div
         className="absolute left-full top-1/2 -translate-y-1/2 ml-5
                    opacity-0 group-hover:opacity-100 transition-all
                    duration-300 h-25 w-10 bg-gray-400 rounded-full
-                   transform group-hover:scale-110"
-      />
+                   transform group-hover:scale-110 flex flex-col"
+      >
+        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+      </div>
     </div>
   );
 };
