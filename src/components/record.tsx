@@ -1,3 +1,4 @@
+import Buttons from './button';
 import record from '../../assets/record.png';
 
 interface RecordProps {
@@ -5,37 +6,33 @@ interface RecordProps {
   togglePlaying: () => void;
 }
 
-const Record = ({ playing, togglePlaying }: RecordProps) => {
-  return (
-    <div 
-      onClick={togglePlaying} 
-      className="m-5 w-32 cursor-pointer group relative"
+const Record = ({ playing, togglePlaying }: RecordProps) => (
+  <div className="flex flex-row group">
+    <div
+      className="relative opacity-0 group-hover:opacity-100 transition-all
+                 duration-300 h-25 w-10 bg-gray-400 rounded-full
+                 transform group-hover:scale-110 flex flex-col">
+      <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+      <hr className="h-px border-0 bg-stone-950" />
+      <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+    </div>
+    <div
+      onClick={togglePlaying}
+      className="m-5 w-32 cursor-pointer relative"
     >
       <img
         src={record}
         alt="record"
         className={`${playing ? 'animate-[spin_10s_linear_infinite]' : ''}`}
       />
-      <div
-        className="absolute right-full top-1/2 -translate-y-1/2 mr-5
-                   opacity-0 group-hover:opacity-100 transition-all
-                   duration-300 h-25 w-10 bg-gray-400 rounded-full
-                   transform group-hover:scale-110 flex flex-col"
-      >
-        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
-        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
-      </div>
-      <div
-        className="absolute left-full top-1/2 -translate-y-1/2 ml-5
-                   opacity-0 group-hover:opacity-100 transition-all
-                   duration-300 h-25 w-10 bg-gray-400 rounded-full
-                   transform group-hover:scale-110 flex flex-col"
-      >
-        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
-        <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
-      </div>
     </div>
-  );
-};
-
-export default Record;
+    <div
+      className="relative opacity-0 group-hover:opacity-100 transition-all
+                 duration-300 h-25 w-10 bg-gray-400 rounded-full
+                 transform group-hover:scale-110 flex flex-col">
+      <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+      <hr className="h-px border-0 bg-stone-950" />
+      <h1 className="w-full h-1/2 ml-2.5 mt-3"> 🎵</h1>
+    </div>
+  </div>
+); export default Record;

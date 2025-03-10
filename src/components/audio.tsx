@@ -6,9 +6,6 @@ interface PlaybackHandlerProps {
   volume: number;
 }
 
-// TO DO:
-// - Normalize volume
-
 const Audio = ({ playing, track, volume }: PlaybackHandlerProps) => {
   const audio = useRef<HTMLAudioElement>(null);
   const audioContext = useRef<AudioContext | null>(null);
