@@ -39,22 +39,10 @@ const Player = () => {
     <div id="Player" className="flex flex-col items-center justify-center min-h-screen w-full p-4">
 
       <div className="flex items-center justify-center w-full max-w-4xl">
-        <div
-          tabIndex={0}
-          role="button"
-          onClick={togglePlaying}
-          onKeyDown={(_) => {
-            if (_.key === "Enter" || _.key === " ") {
-              togglePlaying();
-            }
-          }}
-          className="cursor-pointer"
-        >
           <Record
             playing={playing}
             togglePlaying={togglePlaying}
           />
-        </div>
       </div>
 
       <div className="flex flex-row items-center justify-center w-full max-w-3xs mx-auto">
