@@ -30,13 +30,13 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
         [&::-webkit-slider-thumb]:z-20
         [&::-moz-range-track]:h-4
         [&::-moz-range-track]:rounded-full
-        [&::-moz-range-track]:bg-gray-200
+        [&::-moz-range-track]:bg-gray-500
         [&::-moz-range-progress]:h-4
         [&::-moz-range-progress]:rounded-full
         [&::-moz-range-progress]:bg-blue-500
         [&::-moz-range-thumb]:appearance-none
-        [&::-moz-range-thumb]:h-4
-        [&::-moz-range-thumb]:w-4
+        [&::-moz-range-thumb]:h-5
+        [&::-moz-range-thumb]:w-5
         [&::-moz-range-thumb]:rounded-full
         [&::-moz-range-thumb]:border-none
         [&::-moz-range-thumb]:bg-white"
