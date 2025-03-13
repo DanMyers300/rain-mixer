@@ -39,7 +39,8 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
         [&::-moz-range-thumb]:w-5
         [&::-moz-range-thumb]:rounded-full
         [&::-moz-range-thumb]:border-none
-        [&::-moz-range-thumb]:bg-white"
+        [&::-moz-range-thumb]:bg-white
+        [&::-moz-range-thumb]:-translate-x-[2px]"
       style={{
         '--volume': `${Math.sqrt(volume) * 100}%`,
       } as React.CSSProperties}
