@@ -27,7 +27,19 @@ const Volume = ({ volume, setVolume }: VolumeProps) => {
         [&::-webkit-slider-thumb]:rounded-full
         [&::-webkit-slider-thumb]:bg-white
         [&::-webkit-slider-thumb]:relative
-        [&::-webkit-slider-thumb]:z-20"
+        [&::-webkit-slider-thumb]:z-20
+        [&::-moz-range-track]:h-4
+        [&::-moz-range-track]:rounded-full
+        [&::-moz-range-track]:bg-gray-200
+        [&::-moz-range-progress]:h-4
+        [&::-moz-range-progress]:rounded-full
+        [&::-moz-range-progress]:bg-blue-500
+        [&::-moz-range-thumb]:appearance-none
+        [&::-moz-range-thumb]:h-4
+        [&::-moz-range-thumb]:w-4
+        [&::-moz-range-thumb]:rounded-full
+        [&::-moz-range-thumb]:border-none
+        [&::-moz-range-thumb]:bg-white"
       style={{
         '--volume': `${Math.sqrt(volume) * 100}%`,
       } as React.CSSProperties}
