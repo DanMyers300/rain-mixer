@@ -33,6 +33,8 @@
           hash = "sha256-pzx2bZL/KK4W0v1iOB2l3kHHD7kZbA7WZZKZodFOf4Y=";
         };
 
+        desktopSrc = ./.;
+
         buildInputs = buildLibraries;
         nativeBuildInputs = [
           pkgs.autoPatchelfHook
@@ -42,6 +44,7 @@
         installPhase = ''
           mkdir -p $out/bin
           cp -r linux-unpacked/* $out/bin/
+          install -D $desktopSrc/rain-mixer.desktop $out/share/applications/rain-mixer.desktop
           chmod +x $out/bin/rain-mixer
         '';
       };
