@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Rain Mixer
+Exec=rain-mixer
+Icon=rain-mixer
+Type=Application
+Categories=Music
+StartupNotify=true
+Terminal=false
+X-MultipleArgs=false
+Actions=open;
+
+[Desktop Action open]
+Name=Open a New Window
+Exec=rain-mixer
