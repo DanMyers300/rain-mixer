@@ -35,16 +35,16 @@ A clean web and desktop application for ambient sounds. Perfect for focus, relax
 ## Installation
 
 ### Prerequisites
-- Bun 1.1+
+- NPM
 - @tailwindcss/cli
 - Node.js 20+ (For electron only)
 
 ### Quick Start (Web Version)
 ```bash
-bun install
+npm i
 bun run dev
 
 ### Quick Start (Electron Version)
 ```bash
-bun install
-bun run electron:build
+npm i
+npm run electron:build
