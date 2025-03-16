@@ -42,7 +42,7 @@ A clean web and desktop application for ambient sounds. Perfect for focus, relax
 ### Quick Start (Web Version)
 ```bash
 npm i
-bun run dev
+npm run dev
 
 ### Quick Start (Electron Version)
 ```bash
