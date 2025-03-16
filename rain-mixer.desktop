@@ -7,8 +7,3 @@ Categories=Music
 StartupNotify=true
 Terminal=false
 X-MultipleArgs=false
-Actions=open;
-
-[Desktop Action open]
-Name=Open a New Window
-Exec=rain-mixer
