@@ -9,7 +9,6 @@ const Player = () => {
     volume,
     setVolume,
     playing,
-    togglePlaying,
     track,
     nextTrack,
     prevTrack,
@@ -21,7 +20,7 @@ const Player = () => {
       className="flex flex-col items-center justify-center min-h-screen w-full p-4"
     >
       <div className="flex items-center justify-center w-full max-w-4xl">
-        <Record playing={playing} togglePlaying={togglePlaying} />
+        <Record/>
       </div>
 
       <div className="flex flex-row items-center justify-center w-full max-w-3xs mx-auto">

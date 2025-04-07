@@ -4,9 +4,9 @@ import React, { createContext, useState, useContext } from 'react';
 import rain from '../../assets/rain.mp3';
 import bn from '../../assets/brown Noise.mp3';
 import waterfall from '../../assets/waterfall and Birds.mp3';
-import birds from '../../assets/birds.mp3';
+import ocean from '../../assets/ocean.mp3';
 
-const tracks = [rain, bn, waterfall, birds];
+const tracks = [rain, bn, waterfall, ocean];
 
 // Define the context type
 interface MainContextType {
@@ -18,6 +18,7 @@ interface MainContextType {
   currentTrackIndex: number;
   nextTrack: () => void;
   prevTrack: () => void;
+  setTrackByIndex: (index: number) => void;
 }
 
 // Create the context
@@ -46,6 +47,13 @@ export const MainProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setTrack(tracks[nextTrackIndex]);
   };
 
+  const setTrackByIndex = (index: number) => {
+    if (index >= 0 && index < tracks.length) {
+      setCurrentTrackIndex(index);
+      setTrack(tracks[index]);
+    }
+  };
+
   return (
     <MainContext.Provider
       value={{
@@ -57,6 +65,7 @@ export const MainProvider: React.FC<{ children: React.ReactNode }> = ({ children
         currentTrackIndex,
         nextTrack,
         prevTrack,
+        setTrackByIndex,
       }}
     >
       {children}
@@ -64,7 +73,6 @@ export const MainProvider: React.FC<{ children: React.ReactNode }> = ({ children
   );
 };
 
-// Create a custom hook for easier access to the context
 export const useMainContext = () => {
   const context = useContext(MainContext);
   if (!context) {
