@@ -29,8 +29,8 @@
       default = pkgs.stdenv.mkDerivation rec {
         name = "rain-mixer";
         src = pkgs.fetchzip {
-          url = "https://github.com/DanMyers300/rain-mixer/releases/download/latest/rain-mixer.tar.gz";
-          hash = "sha256-pzx2bZL/KK4W0v1iOB2l3kHHD7kZbA7WZZKZodFOf4Y=";
+          url = "https://github.com/DanMyers300/rain-mixer/releases/download/v0.0.6/rain-mixer.tar.gz";
+          hash = "sha256-mdna3Sjk9JiSqj3cCAYrzO5MnM5FZPQdB+oq0Mt/qdE=";
         };
 
         desktopSrc = ./.;
